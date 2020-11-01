@@ -60,22 +60,23 @@ int main()
   printf("%lf\n",m);
   
   printf("--------------------------------------------------\n");
-  //
+  printf("Your Payment And Account Value Table\n");
+  
   InsuranceValue=AnnuallyPayment-(InsuranceCost+InsuranceFee1);
   First=(InsuranceValue-100)*m;
   for(int i=3;i<=12;i++)
   {
     First=(First-100)*m;
   }
-  printf("%d: %6d,%.2lf\n",age,AnnuallyPayment,First);
-  //
+  printf("%d: %6d,%.1lf\n",age,AnnuallyPayment,First);
+  
   InsuranceValue=AnnuallyPayment-(InsuranceCost+100+InsuranceFee2);
   Second=(First+InsuranceValue-100)*m;
   for(int j=1;j<=11;j++)
   {
     Second=(Second-100)*m;
   }
-  printf("%d: %6d,%.2lf\n",age+1,AnnuallyPayment*2,Second);
+  printf("%d: %6d,%.1lf\n",age+1,AnnuallyPayment*2,Second);
   //
   InsuranceValue=AnnuallyPayment-(InsuranceCost+200+InsuranceFee2);
   Third=(Second+InsuranceValue-100)*1.004167;
@@ -83,7 +84,7 @@ int main()
   {
     Third=(Third-100)*m;
   }
-  printf("%d: %6d,%.2lf\n",age+2,AnnuallyPayment*3,Third);
+  printf("%d: %6d,%.1lf\n",age+2,AnnuallyPayment*3,Third);
   //
   InsuranceValue=AnnuallyPayment-(InsuranceCost+300+InsuranceFee3);
   Forth=(Third+InsuranceValue-100)*m;
@@ -91,7 +92,7 @@ int main()
   {
     Forth=(Forth-100)*m;
   }
-  printf("%d: %6d,%.2lf\n",age+3,AnnuallyPayment*4,Forth);
+  printf("%d: %6d,%.1lf\n",age+3,AnnuallyPayment*4,Forth);
   //
   InsuranceValue=AnnuallyPayment-(InsuranceCost+400+InsuranceFee3);
   Fifth=(Forth+InsuranceValue-100)*m;
@@ -99,16 +100,16 @@ int main()
   {
     Fifth=(Fifth-100)*m;
   }
-  printf("%d: %6d,%.2lf\n",age+4,AnnuallyPayment*5,Fifth);
+  printf("%d: %6d,%.1lf\n",age+4,AnnuallyPayment*5,Fifth);
   //
   uyear=Fifth;
   for(int k=6;k<=year;k++)
   {
     InsuranceValue=AnnuallyPayment-(InsuranceCost+100*(k-1));
-    uyear+=InsuranceValue-100;
+    uyear+=InsuranceValue;
     for(int j=1;j<=12;j++)
     {
-      uyear=(uyear-100)*m;
+       uyear=(uyear-100)*m;
     }
     printf("%d: %6d,%.2lf\n",k+age-1,AnnuallyPayment*k,uyear);
   }
@@ -117,7 +118,7 @@ int main()
   for(int l=year+1;l<=100-age+1;l++)
   {
     InsuranceValue=-(InsuranceCost+100*(l-1));
-    dyear+=InsuranceValue-100;
+    dyear+=InsuranceValue;
     for(int j=1;j<=12;j++)
     {
       dyear=(dyear-100)*m;
